@@ -5,7 +5,8 @@ import os
 from dotenv import load_dotenv
 
 # Загрузка переменных окружения из .env файла
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), '../../.env')
+load_dotenv(dotenv_path)
 
 # Конфигурация страницы
 st.set_page_config(
