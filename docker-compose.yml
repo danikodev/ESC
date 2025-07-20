@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  langflow:
+    build: ./langflow
+    ports:
+      - "7860:7860"
+    env_file:
+      - .env
+    environment:
+      - LANGFLOW_DATABASE_URL=sqlite:////app/langflow/langflow.db
+      - LANGFLOW_CONFIG_DIR=/app/langflow
+    volumes:
+      - ./langflow/data:/app/langflow
+    restart: unless-stopped
+    networks:
+      - ai-network
+
+  agent:
+    build: ./agent
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - LANGFLOW_API_URL=http://langflow:7860
+      - API_KEY=${API_KEY}
+    depends_on:
+      - langflow
+    volumes:
+      - ./agent:/app
+    restart: unless-stopped
+    networks:
+      - ai-network
+
+networks:
+  ai-network:
+    driver: bridge
