@@ -1,16 +1,17 @@
 FROM langflowai/langflow-backend:latest
 
-# Создаём директории
+# Создаём структуру папок
 RUN mkdir -p /app/flows /app/langflow
 
-# Копируем наш поток
-COPY *.json /app/flows/
+# Копируем поток (убедитесь, что файл существует)
+COPY ./flows/Agent.json /app/flows/
 
-# Настройки окружения
+# Важные переменные среды
 ENV LANGFLOW_LOAD_FLOWS_PATH=/app/flows
 ENV LANGFLOW_CONFIG_DIR=/app/langflow
 ENV LANGFLOW_DATABASE_URL=sqlite:////app/langflow/langflow.db
+ENV LANGFLOW_AUTO_LOGIN_ENABLED=true  
+# Добавьте это!
 
 EXPOSE 7860
-
 CMD ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]

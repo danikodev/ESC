@@ -7,11 +7,9 @@ services:
       - "7860:7860"
     env_file:
       - .env
-    environment:
-      - LANGFLOW_DATABASE_URL=sqlite:////app/langflow/langflow.db
-      - LANGFLOW_CONFIG_DIR=/app/langflow
     volumes:
       - ./langflow/data:/app/langflow
+      - ./langflow/flows:/app/flows:ro  # Добавьте это для live-обновления
     restart: unless-stopped
     networks:
       - ai-network
