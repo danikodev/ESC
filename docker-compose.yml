@@ -9,7 +9,7 @@ services:
       - .env
     volumes:
       - ./langflow/data:/app/langflow
-      - ./langflow/flows:/app/flows:ro  # Добавьте это для live-обновления
+      - ./langflow/flows:/app/flows  ы
     restart: unless-stopped
     networks:
       - ai-network

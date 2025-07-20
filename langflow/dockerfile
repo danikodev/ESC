@@ -4,7 +4,8 @@ FROM langflowai/langflow-backend:latest
 RUN mkdir -p /app/flows /app/langflow
 
 # Копируем поток (убедитесь, что файл существует)
-COPY ./flows/Agent.json /app/flows/
+# COPY ./flows/Agent.json /app/flows/
+COPY ./flows/*.json /app/flows/  
 
 # Важные переменные среды
 ENV LANGFLOW_LOAD_FLOWS_PATH=/app/flows
