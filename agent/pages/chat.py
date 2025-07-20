@@ -2,6 +2,10 @@ import streamlit as st
 from streamlit.components.v1 import html
 import requests
 import os
+from dotenv import load_dotenv
+
+# Загрузка переменных окружения из .env файла
+load_dotenv()
 
 # Конфигурация страницы
 st.set_page_config(
@@ -196,7 +200,9 @@ st.markdown("""
 
 # Конфигурация API Langflow
 API_KEY = os.getenv("API_KEY")
-API_URL = "http://langflow:7860/api/v1/run/54925a2b-8469-4b28-8a85-34d75a8470cd"
+LANGFLOW_API_URL = os.getenv("LANGFLOW_API_URL", "http://langflow:7860")
+FLOW_ID = os.getenv("FLOW_ID", "54925a2b-8469-4b28-8a85-34d75a8470cd")
+API_URL = f"{LANGFLOW_API_URL}/api/v1/run/{FLOW_ID}"
 
 headers = {
     "Content-Type": "application/json",
