@@ -6,12 +6,12 @@ import json
 from dotenv import load_dotenv
 from datetime import datetime
 
-dotenv_path = os.path.join(os.path.dirname(__file__), '../.env')
+dotenv_path = os.path.join(os.path.dirname(__file__), '../../.env')
 load_dotenv(dotenv_path)
 
 # Конфигурация API
 # API_KEY = "sk-as43lzhdKPBZ7icPoDr6rKTSJi86iRdVVHKL_V8iMT0"
-API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("LANGFLOW_API_KEY")
 API_URL = "http://localhost:7860/api/v1/run/54925a2b-8469-4b28-8a85-34d75a8470cd"
 
 # Настройка заголовков
