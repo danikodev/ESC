@@ -51,7 +51,7 @@ def process_response(response):
 
 # Настройка интерфейса Streamlit
 st.title("🤖 TATLIN NEURO")
-st.caption("Чат-интерфейс для вашего LangFlow API")
+st.caption("Ваш любимый чат помошник <з")
 
 # Инициализация истории чата
 if "messages" not in st.session_state:

@@ -257,21 +257,7 @@ def home_page():
         </div>
         """, unsafe_allow_html=True)
         
-        # Цитата Татлина с разделителями
-        st.markdown("""
-        <div class="divider">
-            <div class="divider-line"></div>
-        </div>
         
-        <div class="tatlin-quote">
-            "Вперёд, тутутутут"
-            <div class="tatlin-signature">— Татлин</div>
-        </div>
-        
-        <div class="divider">
-            <div class="divider-line"></div>
-        </div>
-        """, unsafe_allow_html=True)
 
 # Запуск главной страницы
 if st.session_state.page == 'home':
